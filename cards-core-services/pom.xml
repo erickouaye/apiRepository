@@ -11,5 +11,8 @@
 
     <artifactId>cards-core-services</artifactId>
     <packaging>pom</packaging>
+    <modules>
+        <module>issue-card-core-microservice</module>
+    </modules>
 
 </project>
