@@ -7,6 +7,7 @@ import org.springframework.oxm.jaxb.Jaxb2Marshaller;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.transport.http.HttpsUrlConnectionMessageSender;
 
+import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.TrustManagerFactory;
 import java.io.IOException;
@@ -47,7 +48,7 @@ public class XMLMarshallingConfig {
 
     @Bean
     public WebServiceTemplate webServiceTemplate(){
-
+        HttpsURLConnection.setDefaultHostnameVerifier ((hostname, session) -> true);
         WebServiceTemplate webServiceTemplate = new WebServiceTemplate();
         webServiceTemplate.setMarshaller(jaxb2Marshaller());
         webServiceTemplate.setUnmarshaller(jaxb2Marshaller());

@@ -3,12 +3,16 @@ package db.pcci.ita.msa.cs.cards.service;
 import db.pcci.ita.msa.cards.soap.client.IssuePrimaryCardRequestType;
 import db.pcci.ita.msa.cards.soap.client.IssuePrimaryCardResponseType;
 import javafx.util.Pair;
+import org.apache.commons.logging.Log;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.ws.client.core.WebServiceTemplate;
 import org.springframework.ws.soap.SoapMessage;
 import org.springframework.ws.soap.client.SoapFaultClientException;
+
+import javax.xml.bind.JAXBElement;
 
 /**
  * Created by oprecos on 06.11.2017.
@@ -26,10 +30,13 @@ public class IssueCardService {
     @Autowired
     private WebServiceTemplate webServiceTemplate;
 
-    public IssuePrimaryCardResponseType getIssuePrimaryCardResponse(IssuePrimaryCardRequestType issuePrimaryCardRequestType) throws Exception {
-        IssuePrimaryCardResponseType response;
+    private static Logger LOGGER = Logger.getLogger(IssueCardService.class);
+
+    public JAXBElement<IssuePrimaryCardResponseType> getIssuePrimaryCardResponse(JAXBElement<IssuePrimaryCardRequestType> issuePrimaryCardRequestType) throws Exception {
+        JAXBElement<IssuePrimaryCardResponseType> response;
+        LOGGER.info(issuePrimaryCardRequestType);
         try {
-            response = (IssuePrimaryCardResponseType) webServiceTemplate.marshalSendAndReceive(
+            response = (JAXBElement<IssuePrimaryCardResponseType>) webServiceTemplate.marshalSendAndReceive(
                     SOAP_URL,
                     issuePrimaryCardRequestType,
                     message -> ((SoapMessage) message).setSoapAction(SOAP_ACTION)
