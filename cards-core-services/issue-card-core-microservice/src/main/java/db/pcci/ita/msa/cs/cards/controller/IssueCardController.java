@@ -1,7 +1,10 @@
 package db.pcci.ita.msa.cs.cards.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import db.pcci.ita.msa.cards.soap.client.IssuePrimaryCardRequestType;
 import db.pcci.ita.msa.cards.soap.client.IssuePrimaryCardResponseType;
+import db.pcci.ita.msa.cs.cards.service.IssueCardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -16,12 +19,11 @@ import org.springframework.ws.client.core.WebServiceTemplate;
 public class IssueCardController {
 
     @Autowired
-    private WebServiceTemplate webServiceTemplate;
+    private IssueCardService issueCardService;
 
     @PostMapping("/cards")
-    public IssuePrimaryCardResponseType getIssuePrimaryCardResponse(IssuePrimaryCardRequestType issuePrimaryCardRequestType){
-        //TO DO
+    public IssuePrimaryCardResponseType getIssuePrimaryCardResponse(IssuePrimaryCardRequestType issuePrimaryCardRequestType) throws Exception {
 
-        return null;
+        return issueCardService.getIssuePrimaryCardResponse(issuePrimaryCardRequestType);
     }
 }
