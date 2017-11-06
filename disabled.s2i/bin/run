@@ -1,0 +1,9 @@
+#!/bin/bash
+
+DEPLOY_DIR="/deployments"
+
+for jars in `ls $DEPLOY_DIR/*.jar`; do
+	JARS=$jars
+done
+
+java $JVM_ARGS -jar $JARS 
