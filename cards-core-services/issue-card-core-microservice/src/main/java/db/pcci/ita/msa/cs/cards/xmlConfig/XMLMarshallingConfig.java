@@ -18,7 +18,7 @@ import java.security.UnrecoverableKeyException;
 import java.security.cert.CertificateException;
 
 /**
- * Created by vlassor on 28.06.2017.
+ * Created by oprecos on 06.11.2017.
  */
 
 @Configuration
