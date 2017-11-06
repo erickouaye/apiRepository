@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.equens.com/cards/issuing/cardordermanagement" xmlns:msg="http://www.equens.com/cards/issuing/messages/" name="CardOrderManagementService" targetNamespace="http://www.equens.com/cards/issuing/cardordermanagement">
+	<wsdl:types>
+		<xsd:schema targetNamespace="http://www.equens.com/cards/issuing/cardordermanagement" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:exc="http://www.equens.com/generic/exceptions/cards/issuing">
+			<xsd:import namespace="http://www.equens.com/cards/issuing/messages/" schemaLocation="xsd/CardOrderManagementMessages.xsd"/>
+			<xsd:import namespace="http://www.equens.com/generic/exceptions/cards/issuing" schemaLocation="xsd/Exceptions.xsd"/>
+			<xsd:element name="IssuePrimaryCard" type="msg:IssuePrimaryCardRequestType"/>
+			<xsd:element name="IssuePrimaryCardResponse" type="msg:IssuePrimaryCardResponseType"/>
+			<xsd:element name="IssueSupplementaryCard" type="msg:IssueSupplementaryCardRequestType"/>
+			<xsd:element name="IssueSupplementaryCardResponse" type="msg:IssueSupplementaryCardResponseType"/>
+			<xsd:element name="WebServiceSystemException" type="exc:WebServiceSystemFault"/>
+			<xsd:element name="WebServiceApplicationException" type="exc:WebServiceApplicationFault"/>
+		</xsd:schema>
+	</wsdl:types>
+	<wsdl:message name="IssuePrimaryCardRequest">
+		<wsdl:part name="IssuePrimaryCardRequest" element="tns:IssuePrimaryCard"/>
+	</wsdl:message>
+	<wsdl:message name="IssuePrimaryCardResponse">
+		<wsdl:part name="IssuePrimaryCardResponse" element="tns:IssuePrimaryCardResponse"/>
+	</wsdl:message>
+	<wsdl:message name="IssueSupplementaryCardRequest">
+		<wsdl:part name="IssueSupplementaryCardRequest" element="tns:IssueSupplementaryCard"/>
+	</wsdl:message>
+	<wsdl:message name="IssueSupplementaryCardResponse">
+		<wsdl:part name="IssueSupplementaryCardResponse" element="tns:IssueSupplementaryCardResponse"/>
+	</wsdl:message>
+	<wsdl:message name="WebServiceApplicationException">
+		<wsdl:part name="fault" element="tns:WebServiceApplicationException"/>
+	</wsdl:message>
+	<wsdl:message name="WebServiceSystemException">
+		<wsdl:part name="fault" element="tns:WebServiceSystemException"/>
+	</wsdl:message>
+	<wsdl:portType name="CardOrderManagementPortType">
+		<wsdl:operation name="IssuePrimaryCard">
+			<wsdl:input message="tns:IssuePrimaryCardRequest"/>
+			<wsdl:output message="tns:IssuePrimaryCardResponse"/>
+			<wsdl:fault name="WebServiceApplicationException" message="tns:WebServiceApplicationException"/>
+			<wsdl:fault name="WebServiceSystemException" message="tns:WebServiceSystemException"/>
+		</wsdl:operation>
+		<wsdl:operation name="IssueSupplementaryCard">
+			<wsdl:input message="tns:IssueSupplementaryCardRequest"/>
+			<wsdl:output message="tns:IssueSupplementaryCardResponse"/>
+			<wsdl:fault name="WebServiceApplicationException" message="tns:WebServiceApplicationException"/>
+			<wsdl:fault name="WebServiceSystemException" message="tns:WebServiceSystemException"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding name="CardOrderManagementBinding" type="tns:CardOrderManagementPortType">
+		<soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="IssuePrimaryCard">
+			<soap:operation soapAction="http://www.equens.com/cards/issuing/cardordermanagement/issueprimarycard"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="WebServiceApplicationException">
+				<soap:fault name="WebServiceApplicationException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="WebServiceSystemException">
+				<soap:fault name="WebServiceSystemException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+		<wsdl:operation name="IssueSupplementaryCard">
+			<soap:operation soapAction="http://www.equens.com/cards/issuing/cardordermanagement/issuesupplementarycard"/>
+			<wsdl:input>
+				<soap:body use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+			<wsdl:fault name="WebServiceApplicationException">
+				<soap:fault name="WebServiceApplicationException" use="literal"/>
+			</wsdl:fault>
+			<wsdl:fault name="WebServiceSystemException">
+				<soap:fault name="WebServiceSystemException" use="literal"/>
+			</wsdl:fault>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="CardOrderManagementService">
+		<wsdl:port name="CardOrderManagementPortType" binding="tns:CardOrderManagementBinding">
+			<soap:address location="http://www.example.org/"/>
+		</wsdl:port>
+	</wsdl:service>
+	<!--date:30-Oct-2017-->
+	<!--version: 1.0.0-->
+	<!--status: draft-->
+	<!--Catalogue: V1.0-->
+</wsdl:definitions>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Equens SE (Equens SE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.equens.com/cards/issuing/messages/" xmlns:types="http://www.equens.com/cards/issuing/types/v1.0" xmlns:codes="http://www.equens.com/cards/issuing/codes/v1.0" targetNamespace="http://www.equens.com/cards/issuing/messages/" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--date:30-Oct-2017-->
+	<!--version: 1.0.0-->
+	<!--status: draft-->
+	<!--Catalogue: V1.0-->
+	
+	<xs:import namespace="http://www.equens.com/cards/issuing/types/v1.0" schemaLocation="Cards_Issuing_Common.xsd"/>
+	<xs:complexType name="GetCardListByPersonalIDRequestType">
+		<xs:sequence>
+			<xs:element name="CustomerKey">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PersonalID" type="types:Max16Text">
+							<xs:annotation>
+								<xs:documentation>Personal identifification code. This is used to identify a customer</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CardListNextCounterKey">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CardListNextCounter" type="types:Max4Digit">
+							<xs:annotation>
+								<xs:documentation>Number of the next card list sequence counter for paging</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="AdditionalData" minOccurs="0" maxOccurs="1">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="Wstype" type="types:Max2Text" minOccurs="0" maxOccurs="1">
+							<xs:annotation>
+								<xs:documentation>Identifies the WS version that has be used. It’s used by the application to select the proper version of the WS to be used</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="GetCardListByPersonalIDResponseType">
+		<xs:sequence>
+			<xs:element name="CustomerKey">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="PersonalID" type="types:Max16Text">
+							<xs:annotation>
+								<xs:documentation>Personal identifification code such as BSN, SSN or HETU. This is used to identify a customer</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CardListPaging">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="CardListMoreRowInd" type="types:Max1Text">
+							<xs:annotation>
+								<xs:documentation>More rows indicator for paging</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+						<xs:element name="CardSeqCounter" type="types:Max4Digit">
+							<xs:annotation>
+								<xs:documentation>Card sequence counter for paging</xs:documentation>
+							</xs:annotation>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="CardListData" maxOccurs="10">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ProductKey">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IssuerKeyType" type="types:Max6Text">
+										<xs:annotation>
+											<xs:documentation>Identifier of the type of the product</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ProductKey" type="types:Max50Text">
+										<xs:annotation>
+											<xs:documentation>Identifier of  product</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AccountKey">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="AccountID" type="types:Max23Text">
+										<xs:annotation>
+											<xs:documentation>Card account number. It is a system number internally calculated by Equens</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AccountData">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="AcctStatusCode" type="types:Max3Text">
+										<xs:annotation>
+											<xs:documentation>The current status code defined for the account</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="AcctStatusReasonCode" type="types:Max3Text">
+										<xs:annotation>
+											<xs:documentation>The current status reason code defined for the account</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CreditLineData" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CLCurrAmount" type="types:Max16Decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>CLCurrAmount is the amount of the credit line valid at the time of inquiry. In case of active temporary credit line (with start/end dates) the CLCurrAmount shows the temporary credit line amount, otherwise it shows the base credit line amount</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="FinancialData" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="AuthOutstandingAmount" type="types:Max16Decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indicates the account outstanding authorization transactions amount for cardholder expenses</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="StmtBalanceAmount" type="types:Max16Decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indicates the account statement transactions balance amount for cardholder expenses</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="OpenToBuyAmount" type="types:Max16Decimal" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Indicates the account available amount for cardholder expenses</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="CardData">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="SurrogateID" type="types:Max23Text">
+										<xs:annotation>
+											<xs:documentation>Surrogate number which is used to replace the PAN in the communication</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CardExpiryDate" type="xs:date">
+										<xs:annotation>
+											<xs:documentation>Highest expiry date of the plastics under the same PAN, it is the date used to control the automatic reissue process</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CardStatusCode" type="types:Max3Text">
+										<xs:annotation>
+											<xs:documentation>Status of the Card</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CardStatusReasonCode" type="types:Max3Text">
+										<xs:annotation>
+											<xs:documentation>Warning Code of the Card</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="CardPrimaryInd" type="types:Max3Text" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Card relationship indicator</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="EmbossingLine1" type="types:Max26Text">
+										<xs:annotation>
+											<xs:documentation>Embossing Line  1</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="EmbossingLine2" type="types:Max26Text" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Embossing Line  2</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="RelatedData" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="IBAN" type="types:Max34Text" minOccurs="0">
+										<xs:annotation>
+											<xs:documentation>Bank Account. IBAN is entered when statement type is changed to e-Invoice or Direct payment. 
+During card order the IBAN presence depends on value assigned to field “IssuerKeyType”</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ComboData" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="CardComboInd" type="types:Max1Text" minOccurs="0" maxOccurs="1">
+										<xs:annotation>
+											<xs:documentation>Combo relationship indicator</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="SurrogateID" type="types:Max23Text" minOccurs="0" maxOccurs="1">
+										<xs:annotation>
+											<xs:documentation>Secondary combo surrogateID, available for Primary combo only</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="AdditionalData" minOccurs="0" maxOccurs="1">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="PlasticType" type="types:Max3Text" minOccurs="0" maxOccurs="1">
+										<xs:annotation>
+											<xs:documentation>Code that indicates the type of product</xs:documentation>
+										</xs:annotation>
+									</xs:element>
+									<xs:element name="ProcessingRelationship" minOccurs="0" maxOccurs="1">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="COID" type="types:Max5Text" minOccurs="0" maxOccurs="1">
+													<xs:annotation>
+														<xs:documentation>Company identifier of the account</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Owner1" type="types:Max5Text" minOccurs="0" maxOccurs="1">
+													<xs:annotation>
+														<xs:documentation>CAMS Owner 1 of the account</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Owner2" type="types:Max5Text" minOccurs="0" maxOccurs="1">
+													<xs:annotation>
+														<xs:documentation>CAMS Owner 2 of the account</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+												<xs:element name="Owner3" type="types:Max5Text" minOccurs="0" maxOccurs="1">
+													<xs:annotation>
+														<xs:documentation>CAMS Owner 3 of the account</xs:documentation>
+													</xs:annotation>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:types="http://www.equens.com/cards/cardparamservice/types/" xmlns:ns1="http://www.equens.com/generic/exceptions/cards/issuing" targetNamespace="http://www.equens.com/generic/exceptions/cards/issuing" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--date:15-April-2016-->
+	<!--version: 0.0.1-->
+	<!--status: draft-->
+	<xs:complexType name="WebServiceApplicationFault">
+		<xs:sequence>
+			<xs:element name="Result">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ResultCode" type="xs:string"/>
+						<xs:element name="ResultDescription" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="WebServiceSystemFault">
+		<xs:sequence>
+			<xs:element name="Result">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="ErrorCode" type="xs:string"/>
+						<xs:element name="ErrorDescription" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

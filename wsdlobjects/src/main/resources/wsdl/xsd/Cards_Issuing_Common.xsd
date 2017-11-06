@@ -1,0 +1,425 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2016 sp1 (x64) (http://www.altova.com) by Equens SE (Equens SE) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.equens.com/cards/issuing/types/v1.0" targetNamespace="http://www.equens.com/cards/issuing/types/v1.0" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<!--date:15-April-2016-->
+	<!--version: 0.0.1-->
+	<!--status: draft-->
+	<xs:import/>
+	<xs:complexType name="CardKeyType">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:complexType name="Counters">
+		<xs:sequence>
+			<xs:element name="Start" type="xs:int"/>
+			<xs:element name="End" type="xs:int"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="Max14Decimal">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="14"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max16Decimal">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="16"/>
+			<xs:fractionDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max8Decimal">
+		<xs:restriction base="xs:decimal">
+			<xs:totalDigits value="8"/>
+			<xs:fractionDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- String data-->
+	<xs:simpleType name="Max1Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max2Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max3Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max4Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max5Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max6Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max7Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max8Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max9Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max10Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max11Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max12Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max13Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max14Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max15Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max16Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max19Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="19"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max20Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="20"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max23Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="23"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max24Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="24"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max25Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="25"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max26Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="26"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max28Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="28"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max34Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="34"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max35Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="35"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max36Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="36"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max40Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="40"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max50Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="50"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max80Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="80"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max100Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="100"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max150Text">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1"/>
+			<xs:maxLength value="150"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<!-- String data Ends-->
+	<xs:simpleType name="Max1Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="1"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max2Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="2"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max3Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="3"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max4Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="4"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max5Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="5"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max6Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="6"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max7Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="7"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max8Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="8"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max9Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="9"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max10Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="10"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max11Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="11"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max12Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="12"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max13Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="13"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max14Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="14"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max15Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="15"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max16Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="16"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="Max18Digit">
+		<xs:restriction base="xs:integer">
+			<xs:totalDigits value="18"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="Error">
+		<xs:sequence>
+			<xs:element name="ErrCd" type="xs:string"/>
+			<xs:element name="ErrDesc" type="xs:string"/>
+			<xs:element name="ErrDetail" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CAMSCobolError">
+		<xs:sequence>
+			<xs:element name="ErrApplNo" type="tns:Max5Digit"/>
+			<xs:element name="ErrCode" type="tns:Max5Digit"/>
+			<xs:element name="ErrDesc" type="tns:Max40Text"/>
+			<xs:element name="ErrSurrogate" type="tns:Max23Text" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ScndryAdr">
+		<xs:sequence>
+			<xs:element name="ClntStmtTitle1" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>Bank statement heading – line 1</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntStmtTitle2" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>Bank statement heading – line 2</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntStmtTitle3" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>Bank statement heading – line 3</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrCareOf" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>The client address care of part</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrStreet" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>The client address street</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrSuburb" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>The client address suburb</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrZip" type="tns:Max9Text">
+				<xs:annotation>
+					<xs:documentation>The client address post code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrCity" type="tns:Max3Text">
+				<xs:annotation>
+					<xs:documentation>The client address City</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrProvinceCd" type="tns:Max3Text">
+				<xs:annotation>
+					<xs:documentation>The client address province code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrCntryCd" type="tns:Max3Text">
+				<xs:annotation>
+					<xs:documentation>The client address country code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Adr">
+		<xs:sequence>
+			<xs:element name="ClntAdrCareOf" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>The client address care of part</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrStreet" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>The client address street</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrSuburb" type="tns:Max40Text">
+				<xs:annotation>
+					<xs:documentation>The client address suburb</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrZip" type="tns:Max9Text">
+				<xs:annotation>
+					<xs:documentation>The client address post code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrCity" type="tns:Max3Text">
+				<xs:annotation>
+					<xs:documentation>The client address City</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrProvinceCd" type="tns:Max3Text">
+				<xs:annotation>
+					<xs:documentation>The client address province code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="ClntAdrCntryCd" type="tns:Max3Text">
+				<xs:annotation>
+					<xs:documentation>The client address country code</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="MpaID">
+		<xs:union memberTypes="xs:unsignedInt">
+			<xs:simpleType>
+				<xs:restriction base="xs:token">
+					<xs:pattern value="0x[0-9A-Fa-f]{8}"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:union>
+	</xs:simpleType>
+</xs:schema>
