@@ -18,7 +18,7 @@ public class IssueCardController {
     @Autowired
     private WebServiceTemplate webServiceTemplate;
 
-    @PostMapping
+    @PostMapping("/cards")
     public IssuePrimaryCardResponseType getIssuePrimaryCardResponse(IssuePrimaryCardRequestType issuePrimaryCardRequestType){
         //TO DO
 

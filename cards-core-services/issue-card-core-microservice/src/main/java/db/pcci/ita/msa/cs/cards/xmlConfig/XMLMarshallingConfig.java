@@ -24,16 +24,16 @@ import java.security.cert.CertificateException;
 @Configuration
 public class XMLMarshallingConfig {
 
-    @Value("${server.ssl.key-store-password}")
+    @Value("${client.ssl.key-store-password}")
     private String keyStorePassword;
 
-    @Value("${server.ssl.trust-store-password}")
+    @Value("${client.ssl.trust-store-password}")
     private String trustStorePassword;
 
-    @Value("${server.ssl.keyStore.path}")
+    @Value("${client.ssl.keyStore.path}")
     private String keyStorePath;
 
-    @Value("${server.ssl.trustStore.path}")
+    @Value("${client.ssl.trustStore.path}")
     private String trustStorePath;
 
 
@@ -41,7 +41,7 @@ public class XMLMarshallingConfig {
     Jaxb2Marshaller jaxb2Marshaller() {
 
         Jaxb2Marshaller jaxb2Marshaller = new Jaxb2Marshaller();
-        jaxb2Marshaller.setContextPath("db.pcci.ita.msa.cs.cards");
+        jaxb2Marshaller.setContextPath("db.pcci.ita.msa.cards.soap.client");
         return jaxb2Marshaller;
     }
 
