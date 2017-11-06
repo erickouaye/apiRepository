@@ -25,6 +25,7 @@ public class IssueCardController {
     @PostMapping("/cards")
     @ExceptionHandler(Exception.class)
     public JAXBElement<IssuePrimaryCardResponseType> getIssuePrimaryCardResponse(@RequestBody IssuePrimaryCardRequestType issuePrimaryCardRequestType) throws Exception {
+        IssuePrimaryCardRequestType.CustomerData customerData = issuePrimaryCardRequestType.getCustomerData();
 
         return issueCardService.getIssuePrimaryCardResponse(createIssuePrimaryCardRequestType(issuePrimaryCardRequestType));
     }
