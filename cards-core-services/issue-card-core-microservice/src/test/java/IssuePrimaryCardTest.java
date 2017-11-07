@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import db.pcci.ita.msa.cards.soap.client.CardOrderManagementHeader;
 import db.pcci.ita.msa.cards.soap.client.IssuePrimaryCardRequestType;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +22,9 @@ public class IssuePrimaryCardTest {
         accountData.setAdditionalIBAN("AdditionalIBAN_Test");
         accountData.setAdditionalProductCode("AdditionalProductCode_Test");
         accountData.setAdditionalIBAN("IBAN_Test");
+        CardOrderManagementHeader cardOrderManagementHeader = new CardOrderManagementHeader();
+        cardOrderManagementHeader.setRequestID("idRequestTest");
+        issuePrimaryCardRequestType.setCardOrderManagementHeader(cardOrderManagementHeader);
         issuePrimaryCardRequestType.setAccountData(accountData);
 
         ObjectMapper mapper = new ObjectMapper();

@@ -45,6 +45,10 @@ public class MultipleReadHttpRequest extends HttpServletRequestWrapper {
         // Read the request body and populate the cachedContent
     }
 
+    public String getBody() {
+        return body;
+    }
+
     @Override
     public ServletInputStream getInputStream() throws IOException {
         // Create input stream from cachedContent
