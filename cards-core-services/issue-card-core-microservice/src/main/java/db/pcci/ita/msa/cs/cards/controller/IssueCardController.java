@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.xml.bind.JAXBElement;
 
 /**
@@ -25,7 +26,6 @@ public class IssueCardController {
     @PostMapping("/cards")
     @ExceptionHandler(Exception.class)
     public JAXBElement<IssuePrimaryCardResponseType> getIssuePrimaryCardResponse(@RequestBody IssuePrimaryCardRequestType issuePrimaryCardRequestType) throws Exception {
-        IssuePrimaryCardRequestType.CustomerData customerData = issuePrimaryCardRequestType.getCustomerData();
 
         return issueCardService.getIssuePrimaryCardResponse(createIssuePrimaryCardRequestType(issuePrimaryCardRequestType));
     }

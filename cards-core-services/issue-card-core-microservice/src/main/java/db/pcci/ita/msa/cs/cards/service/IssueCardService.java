@@ -51,7 +51,6 @@ public class IssueCardService {
     private static Logger LOGGER = Logger.getLogger(IssueCardService.class);
 
     public JAXBElement<IssuePrimaryCardResponseType> getIssuePrimaryCardResponse(JAXBElement<IssuePrimaryCardRequestType> issuePrimaryCardRequestType) throws Exception {
-        isValidated(issuePrimaryCardRequestType);
         JAXBElement<IssuePrimaryCardResponseType> response;
         LOGGER.info(issuePrimaryCardRequestType);
         try {
@@ -67,21 +66,4 @@ public class IssueCardService {
         return response;
     }
 
-    private boolean isValidated(JAXBElement<IssuePrimaryCardRequestType> issuePrimaryCardRequestType){
-        try {
-            JAXBContext jc = JAXBContext.newInstance(IssuePrimaryCardRequestType.class);
-            JAXBSource source = new JAXBSource(jc, issuePrimaryCardRequestType);
-            SchemaFactory sf = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
-            Schema schema;
-            schema = sf.newSchema(new File(this.getClass().getClassLoader().getResource("wsdl/xsd/CardOrderManagementMessages.xsd").getFile()));
-            Validator validator = schema.newValidator();
-//        validator.setErrorHandler(new MyErrorHandler());
-            validator.validate(source);
-
-        } catch (JAXBException | SAXException | IOException e) {
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
 }
